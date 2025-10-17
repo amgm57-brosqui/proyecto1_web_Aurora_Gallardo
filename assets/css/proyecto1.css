@@ -1,0 +1,352 @@
+:root {
+  --bg: #000000;
+  --text: #ffffff;
+  --muted: rgba(255, 255, 255, 0.65);
+  --accent: #ffffff;
+  --radius: 40px;
+}
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: "Inter", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1.6rem;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  height: 80px;
+}
+
+.logo img {
+  max-height: 100%;
+  width: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover img {
+  transform: scale(1.05);
+}
+
+.navbar nav a {
+  color: var(--muted);
+  text-decoration: none;
+  margin: 0 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.navbar nav a:hover {
+  color: var(--accent);
+}
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  background: #222;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
+  z-index: 1;
+}
+
+.hero .content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  padding: 2rem;
+  animation: fadeInUp 2s ease forwards;
+}
+
+.hero .title {
+  font-size: 3.5rem;
+  color: white;
+  margin-bottom: 1rem;
+  filter: blur(8px);
+  animation: focusIn 3s ease forwards 1s;
+}
+
+.hero .subtitle {
+  color: white;
+  font-weight: 300;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  filter: blur(10px);
+  animation: focusIn 3s ease forwards 1.4s;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  border-radius: var(--radius);
+  border: 1px solid #fff;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.4s ease;
+  opacity: 0;
+  animation: fadeUp 1.8s ease forwards 2s;
+  position: relative;
+  z-index: 2;
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+}
+
+/* ===== ANALYSIS SECTIONS ===== */
+.analysis {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 3rem;
+  padding: 6rem 4rem;
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 1.2s ease;
+}
+
+.analysis.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.analysis .left,
+.analysis .right {
+  flex: 1;
+}
+
+.analysis iframe {
+  width: 100%;
+  height: 500px;
+  border-radius: 16px;
+  border: none;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
+}
+
+.analysis .right h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+/* ===== IMÁGENES DE REEMPLAZO ===== */
+.analysis .left img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.05);
+  display: block;
+}
+
+.analysis .left img:hover {
+  transform: scale(1.01);
+  transition: transform 0.4s ease;
+}
+/* ===== PREMIOS ===== */
+.award {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  color: #000;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #ffffff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  animation: fadeInUp 1s ease forwards;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.award:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.15);
+}
+
+.award .material-icons {
+  font-size: 1.2rem;
+  color: #000;
+  transition: color 0.3s ease;
+}
+
+.award:hover .material-icons {
+  color: #ff00c8;
+}
+
+/* ===== ACCORDION ===== */
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.accordion .item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.accordion .item h3 {
+  padding: 1rem 1.2rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: var(--accent);
+  position: relative;
+}
+
+.accordion .item h3::after {
+  content: "+";
+  position: absolute;
+  right: 1.2rem;
+  top: 1rem;
+  font-size: 1.3rem;
+  transition: transform 0.3s ease;
+}
+
+.accordion .item.open h3::after {
+  transform: rotate(45deg);
+}
+
+.accordion .item p {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 1.2rem;
+  line-height: 1.6;
+  color: var(--muted);
+  transition: all 0.4s ease;
+}
+
+.accordion .item.open p {
+  max-height: 300px;
+  padding-bottom: 1rem;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes focusIn {
+  to {
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 1024px) {
+  .analysis {
+    flex-direction: column;
+    padding: 4rem 2rem;
+  }
+  .analysis iframe {
+    height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero .title {
+    font-size: 2.4rem;
+  }
+  .hero .subtitle {
+    font-size: 1rem;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+@media (max-width: 500px) {
+  .analysis iframe {
+    height: 300px;
+  }
+}
