@@ -7,6 +7,7 @@ const observer = new IntersectionObserver(
   },
   { threshold: 0.2 }
 );
+
 sections.forEach((sec) => observer.observe(sec));
 const items = document.querySelectorAll(".accordion .item h3");
 items.forEach((title) => {
