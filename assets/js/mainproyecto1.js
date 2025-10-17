@@ -14,6 +14,7 @@ items.forEach((title) => {
     title.parentElement.classList.toggle("open");
   });
 });
+
 document.querySelectorAll("#analisis h2[data-url]").forEach((h2) => {
   h2.style.cursor = "pointer";
   h2.addEventListener("click", () => {
